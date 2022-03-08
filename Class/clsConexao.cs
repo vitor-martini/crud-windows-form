@@ -19,7 +19,7 @@ namespace BASICS.Class
         }
 
         //Método Conectar
-        public SqlConnection Conectar()
+        public SqlConnection Connect()
         {
             if(sqlCon.State == System.Data.ConnectionState.Closed)
             {
@@ -30,7 +30,7 @@ namespace BASICS.Class
 
         }
 
-        public void Desconectar()
+        public void Disconnect()
         {
             if (sqlCon.State == System.Data.ConnectionState.Open)
             {

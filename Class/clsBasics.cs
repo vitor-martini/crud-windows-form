@@ -29,19 +29,19 @@ namespace BASICS.Class
                 //Parametros
                 oSqlCmd.Parameters.AddWithValue("@valor", SqlDbType.VarChar).Value = valor;
 
-                //Conectar com banco
-                oSqlCmd.Connection = oClsConexao.Conectar();
+                //Connect com banco
+                oSqlCmd.Connection = oClsConexao.Connect();
                 //Executar Comando
                 oSqlCmd.ExecuteNonQuery();
-                //Desconectar
-                oClsConexao.Desconectar();
+                //Disconnect
+                oClsConexao.Disconnect();
                 //Monstrar mensagens de retorno
                 this.sMensagem = "Cadastrado com sucesso!";
 
             }
             catch (SqlException erro)
             {
-                this.sMensagem = "Erro ao se conectar com o bando de dados: " + erro;
+                this.sMensagem = "Erro: " + erro;
             }
         }
 
@@ -58,21 +58,21 @@ namespace BASICS.Class
                 //Parametros
                 oSqlCmd.Parameters.AddWithValue("@valor", SqlDbType.VarChar).Value = valor;
 
-                //Conectar com banco
-                oSqlCmd.Connection = oClsConexao.Conectar();
+                //Connect com banco
+                oSqlCmd.Connection = oClsConexao.Connect();
                 //Executar Comando
                 DataTable oDataTable = new DataTable();
                 oDataTable.Load(oSqlCmd.ExecuteReader());
                 grdTeste.DataSource = oDataTable;
-                //Desconectar
-                oClsConexao.Desconectar();
+                //Disconnect
+                oClsConexao.Disconnect();
                 //Monstrar mensagens de retorno
                 this.sMensagem = "Cadastrado com sucesso!";
 
             }
             catch (SqlException erro)
             {
-                this.sMensagem = "Erro ao se conectar com o bando de dados: " + erro;
+                this.sMensagem = "Erro: " + erro;
             }
         }
 
@@ -92,8 +92,8 @@ namespace BASICS.Class
                 oSqlCmd.Parameters.AddWithValue("@parametro", SqlDbType.VarChar).Value = parametro;
 
 
-                //Conectar com banco
-                oSqlCmd.Connection = oClsConexao.Conectar();
+                //Connect com banco
+                oSqlCmd.Connection = oClsConexao.Connect();
                 //Executar Comando
                 oSqlDataReader = oSqlCmd.ExecuteReader();
                 while (oSqlDataReader.Read())
@@ -103,15 +103,15 @@ namespace BASICS.Class
                 }
 
 
-                //Desconectar
-                oClsConexao.Desconectar();
+                //Disconnect
+                oClsConexao.Disconnect();
                 //Monstrar mensagens de retorno
                 this.sMensagem = "Cadastrado com sucesso!";
 
             }
             catch (SqlException erro)
             {
-                this.sMensagem = "Erro ao se conectar com o bando de dados: " + erro;
+                this.sMensagem = "Erro: " + erro;
             }
         }
 
@@ -125,23 +125,23 @@ namespace BASICS.Class
                 SqlCommand oSqlCmd = new SqlCommand("sp_select_combo");
                 oSqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //Conectar com banco
-                oSqlCmd.Connection = oClsConexao.Conectar();
+                //Connect com banco
+                oSqlCmd.Connection = oClsConexao.Connect();
                 //Executar Comando
                 DataTable oDataTable = new DataTable();
                 oDataTable.Load(oSqlCmd.ExecuteReader());
                 oCombo.ValueMember = "codigo";
                 oCombo.DisplayMember = "valor";
                 oCombo.DataSource = oDataTable;
-                //Desconectar
-                oClsConexao.Desconectar();
+                //Disconnect
+                oClsConexao.Disconnect();
                 //Monstrar mensagens de retorno
                 this.sMensagem = "Cadastrado com sucesso!";
 
             }
             catch (SqlException erro)
             {
-                this.sMensagem = "Erro ao se conectar com o bando de dados: " + erro;
+                this.sMensagem = "Erro: " + erro;
             }
         }
     }
