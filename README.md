@@ -1,2 +1,2 @@
 # crud-windows-form
-Projeto que implementa de forma simplificada a integração de C# com o SQL Server
+Esse projeto teve como objetivo implementar de forma simplificada os métodos CRUD em C# com interface visual Windows Form e banco de dados SQL Server
